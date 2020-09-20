@@ -1,0 +1,40 @@
+<table>
+    <tr>
+        <td>
+            <label for="value1"> 1st Number: </label>
+        </td>
+        <td>
+            <input name="value1" id="value1" value="{{val1 | number: '1.0-2'}}" #value1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="value2"> 2nd Number: </label>
+        </td>
+        <td>
+            <input name="value2" id="value2" value="{{val2 | number: '1.0-2'}}" #value2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="result"> Result: </label>
+        </td>
+        <td>
+            <input readonly name="result" id="result" value="{{ answer }}" #result>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button (click)="add(value1.value, value2.value)"> + </button>
+        </td>
+        <td>
+            <button (click)="subtract(value1.value, value2.value)"> - </button>
+        </td>
+        <td>
+            <button (click)="multiply(value1.value, value2.value)"> * </button>
+        </td>
+        <td>
+            <button (click)="divide(value1.value, value2.value)"> / </button>
+        </td>
+    </tr>
+</table>
