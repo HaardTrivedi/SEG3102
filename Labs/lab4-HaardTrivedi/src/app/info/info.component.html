@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>User Form</h1>
+    <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input type="text" class="form-control" id="firstname"  formControlName="firstname" required>
+        <div [hidden]="firstname.pristine || firstname.valid"
+             class="alert alert-danger">
+          First Name is a required field.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input type="text" class="form-control" id="lastname"  formControlName="lastname">
+        <div [hidden]="lastname.pristine || lastname.valid"
+             class="alert alert-danger">
+          Last name is a required field.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone">
+        <div [hidden]="phone.pristine || phone.valid"
+             class="alert alert-danger">
+            Please enter a valid phone number.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+        <div [hidden]="email.pristine || email.valid"
+             class="alert alert-danger">
+          Please enter a valid email address.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="infoForm.invalid">Submit</button>
+    </form>
+
+    <div [hidden]="!submitted">
+      <table>
+        <tr>User Information Recorded:</tr>
+        <tr>{{lname}}, {{fname}}</tr>
+        <tr>{{phonenum}}</tr>
+        <tr>{{mail}}</tr>
+      </table>
+    </div>
+
+  </div>
